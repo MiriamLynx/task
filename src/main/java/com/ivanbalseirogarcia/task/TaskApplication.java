@@ -9,11 +9,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.FileWriter;
 import java.io.Writer;
-import java.net.URI;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootApplication
 public class TaskApplication {
@@ -25,7 +20,7 @@ public class TaskApplication {
 
     }
 
-    //Method that parses the json information from the website to a MyClass result object
+    //Method that parses the json information from the website to a JSONParser result object
     private static void getData() {
         //Give the URL that it will get the data from
         final String uri = "http://api.plos.org/search?q=title:DNA";
