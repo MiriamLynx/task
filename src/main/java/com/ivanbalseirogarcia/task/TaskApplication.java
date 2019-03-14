@@ -33,7 +33,7 @@ public class TaskApplication {
         JSONParser result = restTemplate.getForObject(uri, JSONParser.class);
 
         try {
-            writeCsv(result);
+            writeCsv(result.getResponse().getDocs());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -42,12 +42,12 @@ public class TaskApplication {
         System.out.println(result);
     }
 
-    private static void writeCsv(JSONParser result) throws Exception {
+    private static void writeCsv(List<Doc> docs) throws Exception {
         Writer writer = new FileWriter("data.csv");
         StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(writer)
                 .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
                 .build();
-        sbc.write(result);
+        sbc.write(docs);
         writer.close();
     }
 }
