@@ -44,7 +44,6 @@ public class TaskApplication {
 
     private static void writeCsv(JSONParser result) throws Exception {
         Writer writer = new FileWriter("data.csv");
-
         StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(writer)
                 .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
                 .build();
